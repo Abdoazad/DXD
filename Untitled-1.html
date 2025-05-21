@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>عرض المنتجات</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product-card {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 200px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-card button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .product-card button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>منتجاتنا</h1>
+  <div class="product-container" id="productList"></div>
+
+  <script>
+    const products = [
+      { name: "منتج 1", price: "10000 د.ع", image: "https://via.placeholder.com/200" },
+      { name: "منتج 2", price: "15000 د.ع", image: "https://via.placeholder.com/200" },
+      { name: "منتج 3", price: "20000 د.ع", image: "https://via.placeholder.com/200" },
+    ];
+
+    const productList = document.getElementById("productList");
+
+    products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.price}</p>
+        <button>أضف إلى السلة</button>
+      `;
+      productList.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
